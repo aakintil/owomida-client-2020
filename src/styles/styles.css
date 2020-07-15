@@ -1,187 +1,231 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@100;300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@100;300;400;500;600;700;800&display=swap");
 
 body {
-    font-family: "Inter";
-    background: #1B1B1B;
-    color: white;
+  font-family: "Inter";
+  background: #1b1b1b;
+  color: white;
 }
 
 a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 h1 {
-    font-size: 32px;
-    font-weight: 300;
+  font-size: 32px;
+  font-weight: 300;
 }
 
 .app-container {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    height: 100%;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  height: 100vh;
 }
 
-.header, 
+.header,
 .content {
-    padding: 20px 16px 0 16px;
+  padding: 20px 16px 0 16px;
 }
 
 .header {
-    border-bottom: 1px solid #1B1B1B;
-    z-index: 1;
-    background: #1B1B1B;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    flex-grow: 0;
-    height: 242px;
-    min-height: 242px;
+  border-bottom: 1px solid #1b1b1b;
+  z-index: 1;
+  background: #1b1b1b;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  flex-grow: 0;
+  height: 242px;
+  min-height: 242px;
 }
 
 /* top nav */
 .top-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-    height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  height: 20px;
 }
 
 .page-title {
-    height: 64px;
-    width: 100%;
-    display: flex;
-    align-items: center;
+  height: 64px;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .btn-link {
-    font-weight: 800;
-    font-size: 10px;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    color: white;
-    text-decoration: none;
+  font-weight: 800;
+  font-size: 10px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
 }
 
 .ui.dropdown {
-    height: 32px;
-    font-weight: 600;
-    font-size: 20px;
-    margin-bottom: 24px; 
-    background: #1B1B1B; 
+  height: 32px;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 24px;
+  background: #1b1b1b;
 }
 
 .dropdown-label {
-    font-weight: 700; 
+  font-weight: 700;
 }
 
 .page-account p {
-    margin: 24px 0; 
+  margin: 24px 0;
 }
 
 .page-account .selected {
-    display: flex; 
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .page-account .selected-text {
-    margin-right: 64px; 
+  margin-right: 64px;
 }
 
 .page-time-filter {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+}
+
+.page-time-filter:hover {
+  cursor: pointer;
 }
 
 .page-time-filter div {
-    width: 72px;
-    height: 32px;
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    border-radius: 4px;
+  width: 100%;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.page-time-filter div:hover {
+  cursor: pointer;
 }
 
 .page-time-filter .selected {
-    background: white;
+  background: white;
 }
 
 .page-time-filter .selected p {
-    color: #1B1B1B;
+  color: #1b1b1b;
 }
 
 .page-account .selected > img {
-    width: 16px; 
-    height: 8px; 
+  width: 16px;
+  height: 8px;
 }
 
 .content {
-
 }
 
 .content .date {
-    font-size: 12px;
-    font-weight: 800;
-    margin-bottom: 8px; 
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 8px;
 }
 
 .section-label {
-    font-size: 24px;
-    font-weight: 400;
-    margin-bottom: 8px; 
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 8px;
 }
 
 .card {
-    border-radius: 4px;
-    width: 100%; 
-    display: flex;
+  border-radius: 4px;
+  width: 100%;
+  display: flex;
 }
 
 .card a {
-    width: 100%; 
-    height: 100%; 
-    padding: 16px; 
+  width: 100%;
+  height: 100%;
+  padding: 16px;
 }
 
 .card-large {
-    height: 88px; 
-    margin-bottom: 24px; 
+  height: 88px;
+  margin-bottom: 24px;
 }
 
 .card-payments {
-    background: #FD3535; 
+  background: #fd3535;
 }
 
 .card-earnings {
-    background: #02C596; 
+  background: #02c596;
 }
 
 .card-amount {
-    font-size: 40px; 
-    font-family: "Be Vietnam";
-    font-weight: 600;
+  font-size: 40px;
+  font-family: "Be Vietnam";
+  font-weight: 600;
+  line-height: 40px;
+  margin-top: -4px;
 }
 
 .card-amount-container {
-    display: flex; 
-    justify-content: space-between;
-    width: 100%; 
-    height: 40px;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+  align-items: flex-end;
+}
+
+.card-amount-container img {
+  height: 32px;
 }
 
 .inactive {
-    opacity: 0.25;
+  opacity: 0.25;
 }
 
 .page-account {
-    margin-bottom: 24px;
+  font-size: 24px;
+  color: white;
+  padding: 0;
+  margin-bottom: 24px;
+  border: none;
+  font-weight: 600;
+}
+
+.page-account option {
+  font-size: 16px;
+  margin: 16px 0; 
+  padding: 20px;
+}
+
+.custom-select {
+  background: #1b1b1b
+    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='white' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e")
+    no-repeat right 0.75rem center/8px 10px !important;
+}
+
+.custom-control-label::before,
+.custom-file-label,
+.custom-select {
+  color: white;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.custom-select:focus {
+  outline: 0;
+  box-shadow: none;
+  color: white;
 }

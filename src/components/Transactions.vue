@@ -2,7 +2,7 @@
 <div class="app-container">
 <div class="header">
   <div class="top-navbar">
-    <a href="" class="btn back-btn inactive"><img src="imgs/icon-back.svg" alt=""></a>
+    <!-- <a href="" class="btn back-btn inactive"><img src="./static/imgs/icon-back.svg" alt=""></a> -->
     <a href="" class="logo btn-link">Owomida.</a>
     <!-- <div id="menu-btn" class="btn-link">Menu</div> -->
   </div>
@@ -50,7 +50,7 @@
                         <!-- <%= overview.paymentsTotal  %> -->
                         <!-- data -->
                     </p>
-                    <img src="imgs/icon-payments.svg" alt="" class="icon icon-payment">
+                    <img src="/static/imgs/icon-payments.svg" alt="" class="icon icon-payment">
                 </div>
             </a>
         </div>
@@ -67,7 +67,7 @@
                         <!-- <%= overview.earningsTotal  %> -->
                         <!-- data -->
                     </p>
-                    <img src="imgs/icon-earnings.svg" alt="" class="icon icon-earnings">
+                    <img src="/static/imgs/icon-earnings.svg" alt="" class="icon icon-earnings">
                 </div>
             </a>
         </div>
