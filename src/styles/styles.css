@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@100;300;400;500;600;700;800&display=swap');
+
+body {
+    font-family: "Inter";
+    background: #1B1B1B;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    height: 100vh;
+}
+
+.header, 
+.content {
+    padding: 20px 16px 0 16px;
+}
+
+.header {
+    border-bottom: 1px solid #1B1B1B;
+    z-index: 1;
+    background: #1B1B1B;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    flex-grow: 0;
+    height: 242px;
+    min-height: 242px;
+}
+
+/* top nav */
+.top-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    height: 20px;
+}
+
+.page-title {
+    height: 64px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.btn-link {
+    font-weight: 800;
+    font-size: 10px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+}
+
+.ui.dropdown {
+    height: 32px;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 24px; 
+    background: #1B1B1B; 
+}
+
+.dropdown-label {
+    font-weight: 700; 
+}
+
+.page-account p {
+    margin: 24px 0; 
+}
+
+.page-account .selected {
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+}
+
+.page-account .selected-text {
+    margin-right: 64px; 
+}
+
+.page-time-filter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-time-filter div {
+    width: 72px;
+    height: 32px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    border-radius: 4px;
+}
+
+.page-time-filter .selected {
+    background: white;
+}
+
+.page-time-filter .selected p {
+    color: #1B1B1B;
+}
+
+.page-account .selected > img {
+    width: 16px; 
+    height: 8px; 
+}
+
+.content {
+
+}
+
+.content .date {
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 8px; 
+}
+
+.section-label {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 8px; 
+}
+
+.card {
+    border-radius: 4px;
+    width: 100%; 
+    display: flex;
+}
+
+.card a {
+    width: 100%; 
+    height: 100%; 
+    padding: 16px; 
+}
+
+.card-large {
+    height: 88px; 
+    margin-bottom: 24px; 
+}
+
+.card-payments {
+    background: #FD3535; 
+}
+
+.card-earnings {
+    background: #02C596; 
+}
+
+.card-amount {
+    font-size: 40px; 
+    font-family: "Be Vietnam";
+    font-weight: 600;
+}
+
+.card-amount-container {
+    display: flex; 
+    justify-content: space-between;
+    width: 100%; 
+    height: 40px;
+    align-items: center;
+}
+
+.inactive {
+    opacity: 0.25;
+}
+
+.page-account {
+    margin-bottom: 24px;
+}
