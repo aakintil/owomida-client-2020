@@ -40,7 +40,7 @@
         </p>
 
         <div class="card card-large card-payments">
-            <a href="/payments/all">
+            <a v-bind:href="'/payments'">
                 <p class="card-label btn-link">
                     Payments
                 </p>

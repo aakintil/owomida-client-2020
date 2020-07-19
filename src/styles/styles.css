@@ -41,7 +41,7 @@ h1 {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   width: 100%;
   flex-grow: 0;
-  height: 242px;
+  height: auto;
   min-height: 242px;
 }
 
@@ -99,6 +99,7 @@ h1 {
 .page-time-filter {
   display: flex;
   justify-content: space-between;
+  height: 48px;
 }
 
 .page-time-filter:hover {
@@ -107,7 +108,7 @@ h1 {
 
 .page-time-filter div {
   width: 100%;
-  height: 32px;
+  height: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,6 +117,14 @@ h1 {
 
 .page-time-filter div:hover {
   cursor: pointer;
+}
+
+.page-time-filter .btn-link {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .page-time-filter .selected {
@@ -206,7 +215,7 @@ h1 {
 
 .page-account option {
   font-size: 16px;
-  margin: 16px 0; 
+  margin: 16px 0;
   padding: 20px;
 }
 

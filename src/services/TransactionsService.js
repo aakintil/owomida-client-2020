@@ -16,6 +16,11 @@ export default {
     return Api().get('posts')
   },
 
+  fetchPayments () {
+    console.log(' fetch payments function : ', Api().get('payments'))
+    return ''
+  },
+
   addPost (params) {
     return Api().post('add_post', params)
   },
