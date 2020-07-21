@@ -100,6 +100,7 @@ export default {
   mounted () {
     this.getPosts()
     this.getTransactions()
+    console.log('testing store ', this.$store.state.filter)
   },
   methods: {
     getDate (obj) {
@@ -113,8 +114,14 @@ export default {
       }
       let params = '/?filter=' + obj.target.innerHTML + account
       this.dateFilter = obj.target.innerHTML
-      console.log(obj.target.innerHTML)
+      // console.log(obj.target.innerHTML)
       this.getTransactions(params)
+      // dispatch with an object
+      this.$store.commit({
+        type: 'updateFilter',
+        filter: obj.target.innerHTML
+      })
+      console.log('updating store ', this.$store.state.filter)
     },
     getSelectedItem (newObjectState) { // Just a regular js function that takes 1 arg
       let account = ''
@@ -151,6 +158,10 @@ export default {
       //   })
       // })
     }
+  },
+  props: {
+    date: this.dateFilter,
+    account: this.accountFilter
   }
 }
 </script>

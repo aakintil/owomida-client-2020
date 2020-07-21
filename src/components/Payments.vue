@@ -57,61 +57,11 @@ export default {
   },
   mounted () {
     this.fetchPayments()
-    this.getTransactions()
   },
   methods: {
     async fetchPayments () {
       const response = await TransactionsService.fetchPayments()
       console.log('inside get payments ', response)
-    },
-    getDate (obj) {
-      var current = document.getElementsByClassName('selected')
-      console.log(current)
-      current[0].className = current[0].className.replace(' selected', '')
-      obj.target.parentNode.className += ' selected'
-      let account = ''
-      if (this.selected !== '') {
-        account = '&' + this.selected
-      }
-      let params = '/?filter=' + obj.target.innerHTML + account
-      this.dateFilter = obj.target.innerHTML
-      console.log(obj.target.innerHTML)
-      this.getTransactions(params)
-    },
-    getSelectedItem (newObjectState) { // Just a regular js function that takes 1 arg
-      let account = ''
-      if (this.selected !== '') {
-        account = '&' + this.selected
-      }
-      let params = '/?filter=' + this.dateFilter + account
-      this.accountFilter = this.selected
-      this.getTransactions(params)
-    },
-    async getTransactions (params) {
-      const response = await TransactionsService.fetchTransactions(params)
-      this.transactions = response.data.transactions
-      console.log('inside getTransactions', this.transactions)
-    },
-    async getPosts () {
-      // const response = await PostsService.fetchPosts()
-      // this.posts = response.data.posts
-    },
-    async deletePost (id) {
-      // const $this = this
-      // $this.$swal({
-      //   title: 'Are you sure?',
-      //   text: "You won't be able to revert this!",
-      //   type: 'warning',
-      //   showCancelButton: true,
-      //   confirmButtonColor: '#3085d6',
-      //   cancelButtonColor: '#d33',
-      //   confirmButtonText: 'Yes, delete it!'
-      // }).then(function () {
-      //   PostsService.deletePost(id)
-      //   $this.$router.go({
-      //     path: '/'
-      //   })
-      // })
     }
   }
 }
