@@ -40,7 +40,7 @@
         </p>
 
         <div class="card card-large card-payments">
-            <a v-bind:href="'/payments'">
+            <router-link to="/payments">
                 <p class="card-label btn-link">
                     Payments
                 </p>
@@ -52,7 +52,7 @@
                     </p>
                     <img src="/static/imgs/icon-payments.svg" alt="" class="icon icon-payment">
                 </div>
-            </a>
+            </router-link>
         </div>
 
         <div class="card card-large card-earnings">

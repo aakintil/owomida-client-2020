@@ -8,7 +8,7 @@ export default {
     } else {
       url = params
     }
-    console.log('inside fetchTransactions ', url)
+    // console.log('inside fetchTransactions ', url)
     return Api().get(url)
   },
 
