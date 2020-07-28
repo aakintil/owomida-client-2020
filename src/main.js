@@ -14,6 +14,7 @@ import '@/styles/transition.css'
 import '@/styles/styles.css'
 import { FormSelectPlugin } from 'bootstrap-vue'
 import numeral from 'numeral'
+import dateFilter from './components/dateFilter'
 
 Vue.filter('formatNumber', function (value) {
   return numeral(value).format('0,0.00') // displaying other groupings/separators is possible, look at the docs
@@ -49,6 +50,6 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App },
+  components: { App, dateFilter },
   store: store
 })
