@@ -1,3 +1,7 @@
+# todos 
+# - learn how to make dateFilter component get props/data and keep it's state
+# - https://vuejs.org/v2/guide/components-dynamic-async.html
+
 # client
 
 > A Vue.js project

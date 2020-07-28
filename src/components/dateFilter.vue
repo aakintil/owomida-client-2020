@@ -36,7 +36,7 @@ module.exports = {
       }
       let params = '/?filter=' + obj.target.innerHTML + account
       this.dateFilter = obj.target.innerHTML
-      // console.log(obj.target.innerHTML)
+
       this.getTransactions(params)
       // dispatch with an object
       this.$store.commit({
