@@ -12,7 +12,7 @@
   </div>
   <b-form-select class='page-account' v-model="selected" @change="getSelectedItem" :options="options"></b-form-select>
   
-  <dateFilter></dateFilter>
+  <dateFilter v-bind:selected='selected'></dateFilter>
 </div>
 <div class="content">
     <div class="date-row">

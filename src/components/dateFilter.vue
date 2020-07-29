@@ -1,17 +1,17 @@
 <template>
   <div class="page-time-filter">
-    <div class="date today selected" v-model="date" @click="getDate">
+    <div class="date today" v-model="date" @click="activeBtn = 'today'" v-bind:class="{selected: activeBtn === 'today' }">
       <p class="btn-link"> today </p>
     </div>
 
-    <div class="date yesterday" v-model="date" @click="getDate">
+    <div class="date yesterday" v-model="date" @click="activeBtn = 'yesterday'" v-bind:class="{selected: activeBtn === 'yesterday' }">
       <p class="btn-link">yesterday</p>
     </div>
 
-    <div class="date week" v-model="date" @click="getDate">
+    <div class="date week" v-model="date" @click="activeBtn = 'week'" v-bind:class="{selected: activeBtn === 'week' }">
       <p class="btn-link">week</p>
     </div>
-    <div class="date month" v-model="date" @click="getDate">
+    <div class="date month" v-model="date" @click="activeBtn = 'month'" v-bind:class="{selected: activeBtn === 'month' }">
       <p class="btn-link">month</p>
     </div>
   </div>
@@ -21,7 +21,12 @@
 module.exports = {
   data: function () {
     return {
-      greeting: 'Hello'
+      activeBtn: 'today'
+    }
+  },
+  props: {
+    selected: {
+      type: String
     }
   },
   methods: {
@@ -44,6 +49,11 @@ module.exports = {
         filter: obj.target.innerHTML
       })
       console.log('updating store ', this.$store.state.filter)
+    }
+  },
+  computed: {
+    classObject: function () {
+      return 'latest-class'
     }
   }
 }

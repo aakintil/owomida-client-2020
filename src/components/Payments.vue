@@ -12,22 +12,7 @@
   </div>
   <b-form-select class='page-account' v-model="selected" @change="getSelectedItem" :options="options"></b-form-select>
 
-    <div class="page-time-filter">
-    <div class="date today selected" v-model="date" @click="getDate">
-      <p class="btn-link"> today </p>
-    </div>
-
-    <div class="date yesterday" v-model="date" @click="getDate">
-      <p class="btn-link">yesterday</p>
-    </div>
-
-    <div class="date week" v-model="date" @click="getDate">
-      <p class="btn-link">week</p>
-    </div>
-    <div class="date month" v-model="date" @click="getDate">
-      <p class="btn-link">month</p>
-    </div>
-  </div>
+  <dateFilter v-bind:selected='selected'></dateFilter>
 
 </div>
 
@@ -36,8 +21,12 @@
 
 <script>
 import TransactionsService from '@/services/TransactionsService'
+import dateFilter from './dateFilter'
 export default {
   name: 'payments',
+  components: {
+    dateFilter
+  },
   data () {
     return {
       date: {},
