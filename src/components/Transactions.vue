@@ -74,8 +74,6 @@ export default {
       date: {},
       transactions: [],
       posts: [],
-      dateFilter: 'today',
-      accountFilter: 'all',
       selected: '',
       options: [
         { value: '', text: 'All Accounts' },
@@ -87,9 +85,8 @@ export default {
     }
   },
   mounted () {
-    this.getPosts()
-    this.getTransactions()
-    console.log('testing store ', this.$store.state.filter)
+    // this.getPosts()
+    // this.getTransactions()
   },
   methods: {
     getSelectedItem (newObjectState) { // Just a regular js function that takes 1 arg

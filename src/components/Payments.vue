@@ -32,7 +32,6 @@ export default {
       date: {},
       transactions: [],
       posts: [],
-      dateFilter: 'today',
       accountFilter: 'all',
       selected: '',
       options: [

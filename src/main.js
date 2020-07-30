@@ -27,21 +27,48 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 const store = new Vuex.Store({
   state: {
-    filter: 'today',
-    account: 'all',
-    transactions: []
+    filters: {
+      date: 'today',
+      account: 'all'
+    },
+    transactions: {
+      earningsTotal: 0,
+      paymentsTotal: 0,
+      list: []
+    }
   },
   mutations: {
-    updateTransactions (state, payload) {
-      state.transactions = payload
+    setTransactionsList (state, payload) {
+      state.transactions.list = payload.transactionsList
     },
-    updateFilter (state, payload) {
-      state.filter = payload.filter
+    setEarningsTotal (state, payload) {
+      state.transactions.earningsTotal = payload.earningsTotal
+    },
+    setPaymentsTotal (state, payload) {
+      state.transactions.paymentsTotal = payload.paymentsTotal
+    },
+    setDateFilter (state, dateFilter) {
+      state.filters.date = dateFilter
+    },
+    setAccountFilter (state, payload) {
+      state.filters.account = payload.accountFilter
     }
   },
   getters: {
-    numberOfTransactions: state => {
-      return state.transactions.length
+    dateFilter: state => {
+      return state.filters.date
+    },
+    accountFilter: state => {
+      return state.filters.account
+    },
+    transactionsList: state => {
+      return state.transactions.list
+    },
+    earningsTotal: state => {
+      return state.transactions.earningsTotal
+    },
+    paymentsTotal: state => {
+      return state.transactions.paymentsTotal
     }
   }
 })
