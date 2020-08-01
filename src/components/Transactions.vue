@@ -12,7 +12,7 @@
   </div>
   <b-form-select class='page-account' v-model="selected" @change="getSelectedItem" :options="options"></b-form-select>
   
-  <dateFilter v-bind:selected='selected'></dateFilter>
+  <dateFilter v-bind:selected='selected' v-bind:getTransactions="getTransactions"></dateFilter>
 </div>
 <div class="content">
     <div class="date-row">
@@ -86,7 +86,7 @@ export default {
   },
   mounted () {
     // this.getPosts()
-    // this.getTransactions()
+    this.getTransactions()
   },
   methods: {
     getSelectedItem (newObjectState) { // Just a regular js function that takes 1 arg
@@ -100,8 +100,12 @@ export default {
     },
     async getTransactions (params) {
       const response = await TransactionsService.fetchTransactions(params)
-      this.transactions = response.data.transactions
-      console.log('inside getTransactions', this.transactions)
+      // this.transactions = response.data.transactions
+      console.log('inside get transactions func')
+      this.setOveriewTotal(response.data.transactions)
+    },
+    setOveriewTotal (payload) {
+      this.$store.commit('setOveriewTotal', payload)
     },
     async getPosts () {
       // const response = await PostsService.fetchPosts()

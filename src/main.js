@@ -38,14 +38,18 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
-    setTransactionsList (state, payload) {
-      state.transactions.list = payload.transactionsList
+    setTransactionsList (state, transaction) {
+      state.transactions.list = transaction
     },
     setEarningsTotal (state, payload) {
       state.transactions.earningsTotal = payload.earningsTotal
     },
     setPaymentsTotal (state, payload) {
       state.transactions.paymentsTotal = payload.paymentsTotal
+    },
+    setOveriewTotal (state, payload) {
+      state.transactions.paymentsTotal = payload.payments
+      state.transactions.earningsTotal = payload.earnings
     },
     setDateFilter (state, dateFilter) {
       state.filters.date = dateFilter

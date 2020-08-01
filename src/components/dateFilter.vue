@@ -27,6 +27,9 @@ module.exports = {
   props: {
     selected: {
       type: String
+    },
+    getTransactions: {
+      type: Function
     }
   },
   methods: {
@@ -51,26 +54,26 @@ module.exports = {
       console.log('updating store ', this.$store.state.filter)
     },
     setActiveDateFilterBtn (date) {
+      let params = ''
+      // if (this.getActiveAccountFilter === 'all') {
+      //   params = '/?filter=' + date
+      // } else {
+      //   params = '/?filter=' + date + '&bankId=' + this.getActiveAccountFilter()
+      // }
+      params = '/?filter=' + date
+      this.getTransactions(params)
+      // this.setTransactionsList(this.getTransactions(params))
       this.$store.commit('setDateFilter', date)
+    },
+    setTransactionsList (transactions) {
+      this.$store.commit('setTransactionsList', transactions)
+    },
+    getActiveAccountFilter () {
+      return this.$store.getters.accountFilter
     },
     getActiveDateFilter () {
       return this.$store.getters.dateFilter
     }
-  },
-  computed: {
-    getDateFilter: function () {
-      return this.$store.getters.dateFilter
-    },
-    setDateFilter: function (date) {
-      // this.$store.commit('setDateFilter', date)
-    }
   }
 }
 </script>
-
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
-</style>
