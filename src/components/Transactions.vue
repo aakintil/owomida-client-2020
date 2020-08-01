@@ -76,16 +76,16 @@ export default {
   },
   mounted () {
     // this.getPosts()
-    this.getTransactions()
+    this.updateData()
   },
   methods: {
-    getSelectedItem (newObjectState) { // Just a regular js function that takes 1 arg
-      let account = ''
-      if (this.selected !== '') {
-        account = '&' + this.selected
+    updateData () { // Just a regular js function that takes 1 arg
+      let params = ''
+      if (this.getAccountFilter() === '') {
+        params = '/?filter=' + this.$store.getters.dateFilter
+      } else {
+        params = '/?filter=' + this.$store.getters.dateFilter + '&' + this.getAccountFilter()
       }
-      let params = '/?filter=' + this.dateFilter + account
-      this.accountFilter = this.selected
       this.getTransactions(params)
     },
     async getTransactions (params) {
@@ -99,6 +99,8 @@ export default {
       // save the updated account filter in store
       let accountFilter = this.selected
       this.$store.commit('setAccountFilter', { accountFilter })
+
+      this.updateData()
     },
     getAccountFilter () {
       return this.$store.getters.accountFilter

@@ -33,26 +33,6 @@ module.exports = {
     }
   },
   methods: {
-    getDate (obj) {
-      var current = document.getElementsByClassName('selected')
-      console.log(current)
-      current[0].className = current[0].className.replace(' selected', '')
-      obj.target.parentNode.className += ' selected'
-      let account = ''
-      if (this.selected !== '') {
-        account = '&' + this.selected
-      }
-      let params = '/?filter=' + obj.target.innerHTML + account
-      this.dateFilter = obj.target.innerHTML
-
-      this.getTransactions(params)
-      // dispatch with an object
-      this.$store.commit({
-        type: 'updateFilter',
-        filter: obj.target.innerHTML
-      })
-      console.log('updating store ', this.$store.state.filter)
-    },
     setActiveDateFilterBtn (date) {
       let params = ''
       if (this.getActiveAccountFilter() === '') {

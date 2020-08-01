@@ -17,9 +17,8 @@
 
 <div class="content">
   <ul id="example-1">
-    <h1>look here</h1>
     <li v-for="item in paymentsTransactions" :key="item._id" :class="item._id">
-      <a>{{ item.desc }}</a>
+      {{ item.desc }}
     </li>
   </ul>
 </div>
@@ -52,7 +51,7 @@ export default {
     }
   },
   mounted () {
-    this.getTransactions()
+    this.updateData()
   },
   methods: {
     async getTransactions (params) {
@@ -61,6 +60,15 @@ export default {
       this.setUpdatedTransactions(response.data.transactions)
       this.paymentsTransactions = this.$store.getters.paymentsTransactions
     },
+    updateData () { // Just a regular js function that takes 1 arg
+      let params = ''
+      if (this.getAccountFilter() === '') {
+        params = '/?filter=' + this.$store.getters.dateFilter
+      } else {
+        params = '/?filter=' + this.$store.getters.dateFilter + '&' + this.getAccountFilter()
+      }
+      this.getTransactions(params)
+    },
     setUpdatedTransactions (payload) {
       this.$store.commit('setUpdatedTransactions', payload)
     },
@@ -68,6 +76,8 @@ export default {
       // save the updated account filter in store
       let accountFilter = this.selected
       this.$store.commit('setAccountFilter', { accountFilter })
+
+      this.updateData()
     },
     getAccountFilter () {
       return this.$store.getters.accountFilter
