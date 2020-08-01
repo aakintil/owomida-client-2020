@@ -44,6 +44,7 @@ h1 {
   flex-grow: 0;
   height: auto;
   min-height: 242px;
+  position: fixed;
 }
 
 /* top nav */
@@ -142,6 +143,7 @@ h1 {
 }
 
 .content {
+  margin-top: 256px;
 }
 
 .content .date {
@@ -238,4 +240,7 @@ h1 {
   outline: 0;
   box-shadow: none;
   color: white;
+}
+.btn-link:focus, .btn-link.focus {
+  text-decoration: none;
 }
