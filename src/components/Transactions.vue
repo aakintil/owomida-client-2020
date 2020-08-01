@@ -10,9 +10,9 @@
   <div class="page-title">
     <h1> Overview</h1> 
   </div>
-  <b-form-select class='page-account' v-model="selected" @change="getSelectedItem" :options="options"></b-form-select>
+  <b-form-select class='page-account' v-model="selected" @change="setAccountFilter" :options="getAccountOptions()"></b-form-select>
   
-  <dateFilter v-bind:selected='selected' v-bind:getTransactions="getTransactions"></dateFilter>
+  <dateFilter v-bind:getTransactions="getTransactions"></dateFilter>
 </div>
 <div class="content">
     <div class="date-row">
@@ -31,9 +31,7 @@
                 </p>
                 <div class="card-amount-container">
                     <p class="card-amount">
-                      {{ transactions.payments | formatNumber }}
-                        <!-- <%= overview.paymentsTotal  %> -->
-                        <!-- data -->
+                      {{ payments | formatNumber }}
                     </p>
                     <img src="/static/imgs/icon-payments.svg" alt="" class="icon icon-payment">
                 </div>
@@ -48,7 +46,7 @@
                 </p>
                 <div class="card-amount-container">
                     <p class="card-amount">
-                        {{ transactions.earnings | formatNumber }}
+                        {{ earnings | formatNumber }}
                         <!-- <%= overview.earningsTotal  %> -->
                         <!-- data -->
                     </p>
@@ -74,14 +72,9 @@ export default {
       date: {},
       transactions: [],
       posts: [],
-      selected: '',
-      options: [
-        { value: '', text: 'All Accounts' },
-        { value: 'bankId=823', text: 'GTB - Primary Savings' },
-        { value: 'bankId=073', text: 'GTB - Business Savings' },
-        { value: 'bankId=493', text: 'GTB - Current' },
-        { value: 'bankId=431', text: 'Access - Savings' }
-      ]
+      selected: this.$store.getters.accountFilter,
+      payments: this.$store.getters.paymentsTotal,
+      earnings: this.$store.getters.earningsTotal
     }
   },
   mounted () {
@@ -100,9 +93,21 @@ export default {
     },
     async getTransactions (params) {
       const response = await TransactionsService.fetchTransactions(params)
-      // this.transactions = response.data.transactions
       console.log('inside get transactions func')
       this.setOveriewTotal(response.data.transactions)
+      this.payments = this.$store.getters.paymentsTotal
+      this.earnings = this.$store.getters.earningsTotal
+    },
+    setAccountFilter (evnt) {
+      // save the updated account filter in store
+      let accountFilter = this.selected
+      this.$store.commit('setAccountFilter', { accountFilter })
+    },
+    getAccountFilter () {
+      return this.$store.getters.accountFilter
+    },
+    getAccountOptions () {
+      return this.$store.getters.accountOptions
     },
     setOveriewTotal (payload) {
       this.$store.commit('setOveriewTotal', payload)
@@ -128,10 +133,6 @@ export default {
       //   })
       // })
     }
-  },
-  props: {
-    date: this.dateFilter,
-    account: this.accountFilter
   }
 }
 </script>

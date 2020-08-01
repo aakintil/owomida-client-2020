@@ -29,7 +29,14 @@ const store = new Vuex.Store({
   state: {
     filters: {
       date: 'today',
-      account: 'all'
+      selected: '', // for the fucking b-form-select
+      accountOptions: [
+        { value: '', text: 'All Accounts' },
+        { value: 'bankId=823', text: 'GTB - Primary Savings' },
+        { value: 'bankId=073', text: 'GTB - Business Savings' },
+        { value: 'bankId=493', text: 'GTB - Current' },
+        { value: 'bankId=431', text: 'Access - Savings' }
+      ]
     },
     transactions: {
       earningsTotal: 0,
@@ -50,12 +57,13 @@ const store = new Vuex.Store({
     setOveriewTotal (state, payload) {
       state.transactions.paymentsTotal = payload.payments
       state.transactions.earningsTotal = payload.earnings
+      state.transactions.list = payload.list
     },
     setDateFilter (state, dateFilter) {
       state.filters.date = dateFilter
     },
     setAccountFilter (state, payload) {
-      state.filters.account = payload.accountFilter
+      state.filters.selected = payload.accountFilter
     }
   },
   getters: {
@@ -63,7 +71,7 @@ const store = new Vuex.Store({
       return state.filters.date
     },
     accountFilter: state => {
-      return state.filters.account
+      return state.filters.selected
     },
     transactionsList: state => {
       return state.transactions.list
@@ -73,6 +81,9 @@ const store = new Vuex.Store({
     },
     paymentsTotal: state => {
       return state.transactions.paymentsTotal
+    },
+    accountOptions: state => {
+      return state.filters.accountOptions
     }
   }
 })
