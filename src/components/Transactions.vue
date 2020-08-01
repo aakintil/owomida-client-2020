@@ -47,8 +47,6 @@
                 <div class="card-amount-container">
                     <p class="card-amount">
                         {{ earnings | formatNumber }}
-                        <!-- <%= overview.earningsTotal  %> -->
-                        <!-- data -->
                     </p>
                     <img src="/static/imgs/icon-earnings.svg" alt="" class="icon icon-earnings">
                 </div>
@@ -69,7 +67,6 @@ export default {
   },
   data () {
     return {
-      date: {},
       transactions: [],
       posts: [],
       selected: this.$store.getters.accountFilter,
@@ -94,7 +91,7 @@ export default {
     async getTransactions (params) {
       const response = await TransactionsService.fetchTransactions(params)
       console.log('inside get transactions func')
-      this.setOveriewTotal(response.data.transactions)
+      this.setUpdatedTransactions(response.data.transactions)
       this.payments = this.$store.getters.paymentsTotal
       this.earnings = this.$store.getters.earningsTotal
     },
@@ -109,8 +106,8 @@ export default {
     getAccountOptions () {
       return this.$store.getters.accountOptions
     },
-    setOveriewTotal (payload) {
-      this.$store.commit('setOveriewTotal', payload)
+    setUpdatedTransactions (payload) {
+      this.$store.commit('setUpdatedTransactions', payload)
     },
     async getPosts () {
       // const response = await PostsService.fetchPosts()

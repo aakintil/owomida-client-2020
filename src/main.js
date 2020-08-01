@@ -41,7 +41,8 @@ const store = new Vuex.Store({
     transactions: {
       earningsTotal: 0,
       paymentsTotal: 0,
-      list: []
+      paymentsTransactions: [],
+      earningsTransactions: []
     }
   },
   mutations: {
@@ -54,10 +55,11 @@ const store = new Vuex.Store({
     setPaymentsTotal (state, payload) {
       state.transactions.paymentsTotal = payload.paymentsTotal
     },
-    setOveriewTotal (state, payload) {
+    setUpdatedTransactions (state, payload) {
       state.transactions.paymentsTotal = payload.payments
       state.transactions.earningsTotal = payload.earnings
-      state.transactions.list = payload.list
+      state.transactions.earningsTransactions = payload.earningsTransactions
+      state.transactions.paymentsTransactions = payload.paymentsTransactions
     },
     setDateFilter (state, dateFilter) {
       state.filters.date = dateFilter
@@ -84,6 +86,9 @@ const store = new Vuex.Store({
     },
     accountOptions: state => {
       return state.filters.accountOptions
+    },
+    paymentsTransactions: state => {
+      return state.transactions.paymentsTransactions
     }
   }
 })

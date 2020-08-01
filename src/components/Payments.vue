@@ -13,7 +13,15 @@
   <b-form-select class='page-account' v-model="selected" @change="setAccountFilter" :options="getAccountOptions()"></b-form-select>
 
   <dateFilter v-bind:selected='selected' v-bind:getTransactions="getTransactions"></dateFilter>
+</div>
 
+<div class="content">
+  <ul id="example-1">
+    <h1>look here</h1>
+    <li v-for="item in paymentsTransactions" :key="item._id" :class="item._id">
+      <a>{{ item.desc }}</a>
+    </li>
+  </ul>
 </div>
 
 </div>
@@ -29,11 +37,11 @@ export default {
   },
   data () {
     return {
-      date: {},
       transactions: [],
       posts: [],
       accountFilter: 'all',
       selected: this.$store.getters.accountFilter,
+      paymentsTransactions: this.$store.getters.paymentsTransactions,
       options: [
         { value: '', text: 'All Accounts' },
         { value: 'bankId=823', text: 'GTB - Primary Savings' },
@@ -49,10 +57,12 @@ export default {
   methods: {
     async getTransactions (params) {
       const response = await TransactionsService.fetchTransactions(params)
-      this.setOveriewTotal(response.data.transactions)
+      console.log('inside get transactions func')
+      this.setUpdatedTransactions(response.data.transactions)
+      this.paymentsTransactions = this.$store.getters.paymentsTransactions
     },
-    setOveriewTotal (payload) {
-      this.$store.commit('setOveriewTotal', payload)
+    setUpdatedTransactions (payload) {
+      this.$store.commit('setUpdatedTransactions', payload)
     },
     setAccountFilter (evnt) {
       // save the updated account filter in store

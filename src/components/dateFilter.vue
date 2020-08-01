@@ -55,14 +55,12 @@ module.exports = {
     },
     setActiveDateFilterBtn (date) {
       let params = ''
-      // if (this.getActiveAccountFilter === 'all') {
-      //   params = '/?filter=' + date
-      // } else {
-      //   params = '/?filter=' + date + '&bankId=' + this.getActiveAccountFilter()
-      // }
-      params = '/?filter=' + date
+      if (this.getActiveAccountFilter() === '') {
+        params = '/?filter=' + date
+      } else {
+        params = '/?filter=' + date + '&' + this.getActiveAccountFilter()
+      }
       this.getTransactions(params)
-      // this.setTransactionsList(this.getTransactions(params))
       this.$store.commit('setDateFilter', date)
     },
     setTransactionsList (transactions) {
