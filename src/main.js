@@ -15,10 +15,16 @@ import '@/styles/styles.css'
 import { FormSelectPlugin } from 'bootstrap-vue'
 import numeral from 'numeral'
 import dateFilter from './components/dateFilter'
+import moment from 'moment'
 
 Vue.filter('formatNumber', function (value) {
   return numeral(value).format('0,0.00') // displaying other groupings/separators is possible, look at the docs
 })
+
+Vue.filter('formatDate', function (date) {
+  return moment(date).format('MMM DD, YYYY')
+})
+
 Vue.use(Vuex)
 Vue.use(FormSelectPlugin)
 Vue.use(VueHead)

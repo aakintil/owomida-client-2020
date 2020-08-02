@@ -15,12 +15,27 @@
   <dateFilter v-bind:selected='selected' v-bind:getTransactions="getTransactions"></dateFilter>
 </div>
 
-<div class="content">
-  <ul id="example-1">
-    <li v-for="item in paymentsTransactions" :key="item._id" :class="item._id">
-      {{ item.desc }}
-    </li>
-  </ul>
+<div class="content transactions-content">
+  <div class="payments-total">
+     <p>
+       {{ payments | formatNumber }}
+    </p>
+  </div>
+  <div class="transactions-list">
+    <p class="transactions-count">{{ paymentsTransactions.length }} Transactions </p>
+    <router-link to="/" v-for="item in paymentsTransactions" :key="item._id" class="transactions-list-row">
+      <div class="transaction-column">
+      <p class="transaction-account">{{item.account}}</p>
+      <p class="transaction-description">{{ item.desc }}</p>
+      </div>
+      <div class="transaction-column">
+      <p class="transaction-date">{{item.date | formatDate}}</p>
+        <div class="transaction-amount-container">
+          {{item.amount | formatNumber}}
+        </div>
+      </div>
+    </router-link>
+  </div>
 </div>
 
 </div>
@@ -40,6 +55,7 @@ export default {
       posts: [],
       accountFilter: 'all',
       selected: this.$store.getters.accountFilter,
+      payments: this.$store.getters.paymentsTotal,
       paymentsTransactions: this.$store.getters.paymentsTransactions,
       options: [
         { value: '', text: 'All Accounts' },
@@ -59,6 +75,7 @@ export default {
       console.log('inside get transactions func')
       this.setUpdatedTransactions(response.data.transactions)
       this.paymentsTransactions = this.$store.getters.paymentsTransactions
+      this.payments = this.$store.getters.paymentsTotal
     },
     updateData () { // Just a regular js function that takes 1 arg
       let params = ''
