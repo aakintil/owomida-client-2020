@@ -95,6 +95,9 @@ const store = new Vuex.Store({
     },
     paymentsTransactions: state => {
       return state.transactions.paymentsTransactions
+    },
+    earningsTransactions: state => {
+      return state.transactions.earningsTransactions
     }
   }
 })

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Transactions from '@/components/Transactions'
 import Payments from '@/components/Payments'
+import TransactionDetail from '@/components/TransactionDetail'
 import addpost from '@/components/AddPost'
 import editpost from '@/components/EditPost'
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/posts/:id/edit',
       component: editpost,
       name: 'editpost'
+    },
+    {
+      path: '/transactionDetail/:id',
+      component: TransactionDetail,
+      name: 'transactionDetail'
     }
   ]
 })

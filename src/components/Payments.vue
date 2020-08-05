@@ -23,7 +23,7 @@
   </div>
   <div class="transactions-list">
     <p class="transactions-count">{{ paymentsTransactions.length }} Transactions </p>
-    <router-link to="/" v-for="item in paymentsTransactions" :key="item._id" class="transactions-list-row">
+    <router-link :to="'transactionDetail/' + item._id" v-for="item in paymentsTransactions" :key="item._id" class="transactions-list-row">
       <div class="transaction-column">
       <p class="transaction-account">{{item.account}}</p>
       <p class="transaction-description">{{ item.desc }}</p>

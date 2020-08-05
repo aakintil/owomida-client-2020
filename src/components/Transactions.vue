@@ -1,59 +1,59 @@
 <template>
 <div class="app-container">
-<div class="header">
-  <div class="top-navbar">
-    <!-- <a href="" class="btn back-btn inactive"><img src="./static/imgs/icon-back.svg" alt=""></a> -->
-    <a href="" class="logo btn-link">Owomida.</a>
-    <!-- <div id="menu-btn" class="btn-link">Menu</div> -->
-  </div>
-
-  <div class="page-title">
-    <h1> Overview</h1> 
-  </div>
-  <b-form-select class='page-account' v-model="selected" @change="setAccountFilter" :options="getAccountOptions()"></b-form-select>
-  
-  <dateFilter v-bind:getTransactions="getTransactions"></dateFilter>
-</div>
-<div class="content">
-    <div class="date-row">
-        <p class="date">June 18, 2020</p> <!-- data -->
+  <div class="header">
+    <div class="top-navbar">
+      <!-- <a href="" class="btn back-btn inactive"><img src="./static/imgs/icon-back.svg" alt=""></a> -->
+      <a href="" class="logo btn-link">Owomida.</a>
+      <!-- <div id="menu-btn" class="btn-link">Menu</div> -->
     </div>
-    <div class="funds-container">
-        <p class="section-label">
-            My Funds
-            <!-- data -->
-        </p>
 
-        <div class="card card-large card-payments">
-            <router-link to="/payments">
-                <p class="card-label btn-link">
-                    Payments
-                </p>
-                <div class="card-amount-container">
-                    <p class="card-amount">
-                      {{ payments | formatNumber }}
-                    </p>
-                    <img src="/static/imgs/icon-payments.svg" alt="" class="icon icon-payment">
-                </div>
-            </router-link>
-        </div>
-
-        <div class="card card-large card-earnings">
-            <a href="">
-                <!-- data -->
-                <p class="card-label btn-link">
-                    Earnings
-                </p>
-                <div class="card-amount-container">
-                    <p class="card-amount">
-                        {{ earnings | formatNumber }}
-                    </p>
-                    <img src="/static/imgs/icon-earnings.svg" alt="" class="icon icon-earnings">
-                </div>
-            </a>
-        </div>
+    <div class="page-title">
+      <h1> Overview</h1> 
     </div>
-</div>
+    <b-form-select class='page-account' v-model="selected" @change="setAccountFilter" :options="getAccountOptions()"></b-form-select>
+    
+    <dateFilter v-bind:getTransactions="getTransactions"></dateFilter>
+  </div>
+  <div class="content">
+      <div class="date-row">
+          <p class="date">June 18, 2020</p> <!-- data -->
+      </div>
+      <div class="funds-container">
+          <p class="section-label">
+              My Funds
+              <!-- data -->
+          </p>
+
+          <div class="card card-large card-payments">
+              <router-link to="/payments">
+                  <p class="card-label btn-link">
+                      Payments
+                  </p>
+                  <div class="card-amount-container">
+                      <p class="card-amount">
+                        {{ payments | formatNumber }}
+                      </p>
+                      <img src="/static/imgs/icon-payments.svg" alt="" class="icon icon-payment">
+                  </div>
+              </router-link>
+          </div>
+
+          <div class="card card-large card-earnings">
+              <a href="">
+                  <!-- data -->
+                  <p class="card-label btn-link">
+                      Earnings
+                  </p>
+                  <div class="card-amount-container">
+                      <p class="card-amount">
+                          {{ earnings | formatNumber }}
+                      </p>
+                      <img src="/static/imgs/icon-earnings.svg" alt="" class="icon icon-earnings">
+                  </div>
+              </a>
+          </div>
+      </div>
+  </div>
 </div>
 </template>
 
