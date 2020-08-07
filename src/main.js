@@ -25,6 +25,16 @@ Vue.filter('formatDate', function (date) {
   return moment(date).format('MMM DD, YYYY')
 })
 
+Vue.filter('formatAccount', function (account) {
+  let accounts = {
+    '823': 'GTB - Primary Savings',
+    '073': 'GTB - Business Savings',
+    '493': 'GTB - Current',
+    '431': 'Access - Savings'
+  }
+  return accounts[account]
+})
+
 Vue.use(Vuex)
 Vue.use(FormSelectPlugin)
 Vue.use(VueHead)
