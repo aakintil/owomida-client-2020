@@ -12,6 +12,11 @@
     </div>
     <div class="content transactions-content">
       <div class="transaction-detail-row">
+        <p class="label">Type</p>
+        <p class="text">{{ transactionDetail.type }}</p>
+      </div>
+
+      <div class="transaction-detail-row">
         <p class="label">Amount</p>
         <p class="text">{{ transactionDetail.amount | formatNumber }}</p>
       </div>

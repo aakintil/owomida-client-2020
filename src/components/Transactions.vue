@@ -39,7 +39,7 @@
           </div>
 
           <div class="card card-large card-earnings">
-              <a href="">
+              <router-link to="/earnings">
                   <!-- data -->
                   <p class="card-label btn-link">
                       Earnings
@@ -50,7 +50,7 @@
                       </p>
                       <img src="/static/imgs/icon-earnings.svg" alt="" class="icon icon-earnings">
                   </div>
-              </a>
+              </router-link>
           </div>
       </div>
   </div>

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Transactions from '@/components/Transactions'
 import Payments from '@/components/Payments'
+import Earnings from '@/components/Earnings'
 import TransactionDetail from '@/components/TransactionDetail'
 import addpost from '@/components/AddPost'
 import editpost from '@/components/EditPost'
@@ -20,6 +21,11 @@ export default new Router({
       path: '/payments',
       name: 'Payments',
       component: Payments
+    },
+    {
+      path: '/earnings',
+      name: 'Earnings',
+      component: Earnings
     },
     {
       path: '/posts/add',
